@@ -1,0 +1,66 @@
+create database care_child;
+
+use care_child;
+create table crianca(
+	id int primary key auto_increment,
+    nome varchar(50),
+    data_nascimento date,
+    sexo varchar(15),
+    responsavel varchar(50)
+);
+
+create table cuidado(
+	id int primary key auto_increment,
+    nome varchar(30),
+    descricao varchar(70)
+);
+
+create table funcionario(
+	id int primary key auto_increment,
+    nome varchar(50),
+    cpf varchar(11),
+    rg varchar(8),
+    sexo varchar(15),
+    escolaridade varchar(20),
+    funcao varchar(15),
+    diferencial varchar(50)
+);
+
+create table compromisso(
+	id int primary key auto_increment,
+    crianca_fk int references crianca,
+    cuidado_fk int references cuidado,
+    qtd_vezes varchar(15),
+    frequencia varchar(10),
+    hora_inicio time,
+    encerrado varchar(3)
+);
+
+create table compromisso_realizado(
+	id int primary key auto_increment,
+    compromisso_fk int references compromisso,
+    funcionario_fk int references funcionario,
+    hr_realizacao time
+);
+
+
+#inserção crianças
+insert into crianca(nome,data_nascimento,sexo,responsavel)values("joaozinho",'2015-11-11',"masculino","Maria");
+insert into crianca(nome,data_nascimento,sexo,responsavel)values("aninha",'2014-10-1',"feminino","Marta");
+insert into crianca(nome,data_nascimento,sexo,responsavel)values("pedrinho",'2014-09-10',"masculino","Joao");
+
+#inserção cuidados
+insert into cuidado(nome,descricao)values("Medicação controlada","dar á crianca o remedio receitado, na hora pré definida pelo medico");
+insert into cuidado(nome,descricao)values("Trocar curativo","tirar o curativo que já está sujo por um curativo novo");
+insert into cuidado(nome,descricao)values("Alimentação controlada","Alimentar a criança no horário marcado com os nutrientes receitados");
+
+#inserção funcionário
+insert into funcionario(nome,cpf,rg,sexo,escolaridade,funcao,diferencial)values("Claudia","11111111111","11111111","Feminino","Ensino médio/tecnico","Cuidador","Tecnico em enfermagem");
+insert into funcionario(nome,cpf,rg,sexo,escolaridade,funcao,diferencial)values("Rita","22222222222","22222222","Feminino","Ensino médio","Cozinheiro","Fazer petiscos");
+insert into funcionario(nome,cpf,rg,sexo,escolaridade,funcao,diferencial)values("Marlene","33333333333","33333333","Feminino","Ensino superior","Diretor","Formado em administração");
+
+#criar compromisso
+insert into compromisso(crianca_fk,cuidado_fk,frequencia,qtd_vezes,hora_inicio,encerrado)values(1,1,"12 hour","uma vez",'09:10:30',"sim");
+insert into compromisso(crianca_fk,cuidado_fk,frequencia,qtd_vezes,hora_inicio,encerrado)values(2,2,"10 hour","uma vez",'10:00:00',"nao");
+insert into compromisso(crianca_fk,cuidado_fk,frequencia,qtd_vezes,hora_inicio,encerrado)values(2,2,"10 hour","uma vez",'23:05:00',"sim");
+insert into compromisso(crianca_fk,cuidado_fk,frequencia,qtd_vezes,hora_inicio,encerrado)values(2,2,"10 hour","uma vez",'23:07:00',"sim");
