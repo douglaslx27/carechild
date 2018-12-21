@@ -1,0 +1,14 @@
+1- Cole a pasta carechild na pasta do servidor local "opt/lampp/htdocs".
+2- Execute em seu gerenciador de banco de dados os comandos do arquivo "comandos bd".
+3- Abra o projeto "carechild" na sua IDE.
+4- Com o servidor local rodadndo pesquise na barra de url por "localhost/carechild".
+obs: Não foi possivel desenvolver toda a ideia, mas consegui desenvolver a função de cadastrar compromisso e listar compromisso(que esta no link "RETRIEVE"), e emitir alarme.
+
+		--Para testar--
+
+1- Observe a hora que aparece do lado do menu, some dois ou tres minutos.
+2- Crie um compromisso com o horário inicial 12 horas antes da soma, feita com a hora atual que aparece ao lado do menu
+3- Fique atualizando a página até dar a hora somada.
+4- Clique em encerrar.
+
+obs: foi só isso que desenvolvi.
